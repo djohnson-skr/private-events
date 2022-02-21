@@ -4,10 +4,9 @@
   <%= "No Events" %>
 <% else %>
   <% @events.each do |event| %>
-    <%= event.name %><br>
-    <%= event.date %><br>
-    <%= event.location %><br>
-    <%= event.description %><br><br>
+    <%= link_to event.name, event%><br><br>
   <% end %> 
 <% end %>
+
+<%= link_to "New Event", new_event_path %>
 
