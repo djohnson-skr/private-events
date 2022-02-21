@@ -11,3 +11,9 @@
   <%= form.text_field(:description) %><br><br>
   <%= form.submit %>
 <% end %>
+
+<% if @event.errors.any? %>
+  <% @event.errors.each do |error| %>
+    <%= error.full_message %>
+  <% end %>
+<% end %>

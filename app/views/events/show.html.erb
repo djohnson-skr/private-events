@@ -1,8 +1,10 @@
 <h1>See details about <%= @event.name %> below</h1>
 
+Creator: <%= @event.creator.name %><br>
 <%= @event.name %><br>
 <%= @event.date %><br>
 <%= @event.location %><br>
 <%= @event.description %><br><br>
+
 
 <%= link_to "All Events", events_path%>
