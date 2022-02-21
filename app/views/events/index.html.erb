@@ -1,7 +1,13 @@
 <h1>Showing all Events</h1>
 
-<% if false%>
-<% @event.each do |event| %>
-  <%= event %>
-<% end %> 
+<% if @events.nil? %>
+  <%= "No Events" %>
+<% else %>
+  <% @events.each do |event| %>
+    <%= event.name %><br>
+    <%= event.date %><br>
+    <%= event.location %><br>
+    <%= event.description %><br><br>
+  <% end %> 
 <% end %>
+
