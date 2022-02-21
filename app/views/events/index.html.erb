@@ -1,12 +1,19 @@
 <h1>Showing all Events</h1>
+<h3>Sign In or Register to see event details</h3>
 
-<% if @events.nil? %>
-  <%= "No Events" %>
+<% if user_signed_in? %>
+  <% if @events.nil? %>
+    <%= "No Events" %>
+  <% else %>
+    <% @events.each do |event| %>
+      <%= link_to event.name, event%><br><br>
+    <% end %> 
+  <% end %>
+  <%= link_to "New Event", new_event_path %>
 <% else %>
   <% @events.each do |event| %>
-    <%= link_to event.name, event%><br><br>
+    <%= event.name %><br><br>
   <% end %> 
+  <%= link_to "Sign In", user_session_path %><br>
+  <%= link_to "Register", new_user_registration_path %>
 <% end %>
-
-<%= link_to "New Event", new_event_path %>
-
