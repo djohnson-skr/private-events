@@ -7,4 +7,8 @@ Creator: <%= @event.creator.name %><br>
 <%= @event.description %><br><br>
 
 
-<%= link_to "All Events", events_path%>
+<%= link_to "All Events", events_path%><br>
+
+<% if current_user.id == @event.creator.id %>
+  <%= link_to "My Events", user_path(current_user) %>
+<% end %>
