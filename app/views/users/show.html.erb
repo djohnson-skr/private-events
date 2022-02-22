@@ -1,5 +1,11 @@
-<h1>Hello <%= @user.name %>, see your events below</h1>
+<h1>Hello <%= @user.name %>, see your created events below</h1>
 <% @user.created_events.each do |event| %>
   <%= link_to event.name, event %><br><br>
 <% end %>
+
+<h1>Events RSVPed to</h1>
+<% @user.attended_events.each do |event| %>
+  <%= event.name %>
+<% end %>
+
 
