@@ -4,7 +4,14 @@ Creator: <%= @event.creator.name %><br>
 <%= @event.name %><br>
 <%= @event.date %><br>
 <%= @event.location %><br>
-<%= @event.description %><br><br>
+<%= @event.description %><br>
+Attendees: 
+<%# grab the event attendees and iterate thru them to grab their names %>
+<% @event.attendees.each do |attendee| %>
+  <%= attendee.name %>
+<% end %>
+
+<br><br>
 
 <%= form_with model: Rsvp.new do |form| %>
   <%= form.hidden_field :attended_event_id, value: @event.id %>
