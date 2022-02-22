@@ -1,5 +1,4 @@
 <h1>Showing all Events</h1>
-<h3>Sign In or Register to see event details</h3>
 
 <% if user_signed_in? %>
   <% if @events.nil? %>
@@ -12,9 +11,10 @@
   <%= link_to "New Event", new_event_path %>
   <%= link_to "My Events", user_path(current_user) %>
 <% else %>
+  <h3>Sign In or Register to see event details</h3>
   <% @events.each do |event| %>
     <%= event.name %><br><br>
-  <% end %> 
+  <% end %>
   <%= link_to "Sign In", user_session_path %><br>
   <%= link_to "Register", new_user_registration_path %>
 <% end %>
