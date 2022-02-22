@@ -6,10 +6,10 @@ Creator: <%= @event.creator.name %><br>
 <%= @event.location %><br>
 <%= @event.description %><br><br>
 
-<% form_with model: Rsvp.new do |form| %>
-  <%= form.hidden_field :attendee_event_id, value => @event.id%>
-  <%= form.hidden_field :attendee__id, value => current_user.id%>
-  <%= form.submit "Reserve a spot" %>
+<%= form_with model: Rsvp.new do |form| %>
+  <%= form.hidden_field :attended_event_id, value: @event.id %>
+  <%= form.hidden_field :attendee_id, value: current_user.id %>
+  <%= form.submit "RSVP" %>
 <% end %>
 
 <%= link_to "All Events", events_path%><br>
