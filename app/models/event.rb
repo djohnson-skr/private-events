@@ -4,4 +4,8 @@ class Event < ApplicationRecord
   has_many :attendees, through: :rsvps
 
   validates :name, presence: true
+
+  scope :past_events, -> { where("date < ?", Time.current) }
+  scope :upcoming_events, -> { where("date >= ?", Time.current) }
+
 end
