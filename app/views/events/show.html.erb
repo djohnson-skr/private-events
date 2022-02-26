@@ -21,4 +21,5 @@ Attendees:
 
 <% if @event.creator == current_user %>
   <%= link_to "Edit #{@event.name}", edit_event_path %>
+  <%= link_to "Delete", event_path, method: :delete %>
 <% end %>
