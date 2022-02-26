@@ -1,0 +1,14 @@
+<%= form_with model: event do |form| %>
+  <%= form.label("Name") %>
+  <%= form.text_field(:name, placeholder: "Name of your event") %><br><br>
+  <% event.errors.full_messages_for(:name).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  <%= form.label("Date") %>
+  <%= form.text_field(:date, placeholder: "YYYY/MM/DD") %><br><br>
+  <%= form.label("Location") %>
+  <%= form.text_field(:location) %><br><br>
+  <%= form.label("Description") %>
+  <%= form.text_field(:description) %><br><br>
+  <%= form.submit %>
+<% end %>
